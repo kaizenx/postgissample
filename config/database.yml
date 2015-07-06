@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgis
+  encoding: unicode
+  host: localhost
+  pool: 5
+  schema_search_path: public
+
+development:
+  <<: *default
+  database: postgissample_development
+
+test:
+  <<: *default
+  database: postgissample_test
+
+production:
+  <<: *default
+  database: postgissample_production
+  username: Urbanstove
+  password: <%= ENV['POSTGIS_SAMPLE_PASSWORD'] %>
